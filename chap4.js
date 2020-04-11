@@ -58,3 +58,37 @@ for (let event of journalEvents(JOURNAL)) {
     console.log(event + ":", correlation);
   }
 }
+
+// A bunch of explaining of functions
+
+
+// JSON
+// Serializing the data -> converting to a flat description
+
+
+// Exercises
+
+// Exercise 2
+function reverseArray(array) {
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    newArray.unshift(array[i]);
+  }
+  return newArray;
+}
+
+function reverseArrayInPlace(array) {
+  for (let i = 0; i < (Math.floor(array.length / 2)); i++) {
+    let back = array[array.length - 1 - i];
+    array[array.length - 1 - i] = array[i];
+    array[i] = back;
+  }
+  return array;
+}
+
+console.log(reverseArray(["A", "B", "C"]));
+// → ["C", "B", "A"];
+let arrayValue = [1, 2, 3, 4, 5];
+reverseArrayInPlace(arrayValue);
+console.log(arrayValue);
+// → [5, 4, 3, 2, 1]
