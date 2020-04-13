@@ -123,6 +123,8 @@ function arrayToList(array) {
   return list;
 }
 
+let newList = {value: 10, rest: {value: 20, rest: null}};
+
 function listToArray(list) {
   let array = [];
   for (let node = list; node; node = node.rest) {
@@ -131,10 +133,14 @@ function listToArray(list) {
   return array;
 }
 
+function prepend(value, list) {
+  return {value, rest: list};
+}
 
-function prepend()
-
-let list = {value: 10, rest: {value: 20, rest: null}};
-let arr = [1, 2, 3, 4]
-console.log(arrayToList(arr));
-console.log(listToArray(list));
+function nth(list, index) {
+  let array = [];
+  for (let node = list; node; node = node.rest) {
+    array.push(node.value);
+  }
+  return array[index];
+}
