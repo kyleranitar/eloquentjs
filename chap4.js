@@ -123,11 +123,9 @@ function arrayToList(array) {
   return list;
 }
 
-let newList = {value: 10, rest: {value: 20, rest: null}};
-
 function listToArray(list) {
   let array = [];
-  for (let node = list; node; node = node.rest) {
+  for (let node = list; node != null ; node = node.rest) {
     array.push(node.value);
   }
   return array;
@@ -137,10 +135,31 @@ function prepend(value, list) {
   return {value, rest: list};
 }
 
-function nth(list, index) {
-  let array = [];
-  for (let node = list; node; node = node.rest) {
-    array.push(node.value);
+function nth(list, n) {
+  if (list == null) return undefined;
+  else if (n == 0) return list.value;
+  else return nth(list.rest, n - 1);
+}
+
+// Exercise 4
+function deepEqual(a, b) {
+  if (a === b) return true;
+
+  // If neither params are an object return false immediately
+  if (a != null || typeof a == "object" ||
+      b != null || typeof b == "object") return false;
+
+  // assign variables to properties
+  let keysA = Object.keys(a), keysB = Object.keys(b);
+
+  // check if lengths are equal
+  if (keysA.length != keysB.length) return false;
+
+  // loop through the object's properties
+  for (let keys of keysA) {
+    // If keysB does not have a, or the deepEqual function does not turn true
+    if (!keysB.includes(a) || !deepEqual(a[key], b[key])) return false;
   }
-  return array[index];
+
+  return true;
 }
