@@ -28,3 +28,15 @@ repeat(5, i => {
   labels.push(`Unit ${i + 1}`);
 });
 console.log(labels;)
+
+// Datasets with Higher Order Functions
+
+// map, forEach, filter, reduce are standard array methods.
+
+function characterCount(script) {
+  return script.ranges.reduce((count, [from, to]) => {
+    return count + (to - from);
+  }, 0);
+}
+
+// Strings and Character Codes
