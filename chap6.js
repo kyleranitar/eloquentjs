@@ -10,3 +10,4 @@ function speak(line) {
 let whiteRabbit = {type: white, speak};
 
 whiteRabbit.speak("oh my ears")
+// Not feeling it today.
